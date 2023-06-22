@@ -4,6 +4,9 @@ module.exports = {
   index,
   new: newStock,
   create,
+  edit,
+  update,
+  delete: deleteStock,
 };
 
 async function index(req, res) {
@@ -24,6 +27,36 @@ function newStock(req, res) {
 async function create(req, res) {
   try {
     await Stock.create(req.body);
+    res.redirect('/stocks');
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function edit(req, res) {
+  try {
+    Stock.findById(req.params.id).then((stock) => {
+      res.render('stocks/edit', {
+        stock: stock,
+      });
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function update(req, res) {
+  try {
+    await Stock.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.redirect('/stocks');
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function deleteStock(req, res) {
+  try {
+    await Stock.findByIdAndRemove(req.params.id);
     res.redirect('/stocks');
   } catch (err) {
     console.log(err);

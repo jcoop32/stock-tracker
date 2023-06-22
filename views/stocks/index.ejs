@@ -22,8 +22,25 @@
                 <%} else{%>
                     <td style="color: red;"><%= stock[i].feeling %></td>
                 <%} %>
+                <td>
+                    <a href="/stocks/<%=stock[i]._id%>/edit">
+                        <input type="image" src="/images/pencil.svg"></input>
+                    </a>
+                </td>
+                <td>
+                    <form action="/stocks/<%=stock[i]._id%>?_method=DELETE" method='POST'>
+                           <input type="image" src="/images/trash.svg"></input>
+                    </form>
+                </td>
             </tr>
         <%} %>
+        <tr id="plus-row">
+            <td id="plus">
+                <a href="/stocks/new">
+                    <input type="image" src="/images/plus-square-fill.svg"></input>
+                </a>
+            </td>
+        </tr>
     </tbody>
 </table>
 

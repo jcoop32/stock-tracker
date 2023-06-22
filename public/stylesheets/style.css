@@ -11,3 +11,7 @@ tr, td, thead, th {
   border: 1px solid black;
   padding: 8px;
 }
+#plus{
+  padding: 1px;
+  border: none;
+}
