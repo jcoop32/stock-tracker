@@ -17,7 +17,11 @@
                 <td><%= stock[i].name %></td>
                 <td><%= stock[i].ticker %></td>
                 <td><%= stock[i].price %></td>
-                <td><%= stock[i].feeling %></td>
+                <% if(stock[i].feeling === 'Bullish'){%>
+                    <td style="color: green;"><%= stock[i].feeling %></td>
+                <%} else{%>
+                    <td style="color: red;"><%= stock[i].feeling %></td>
+                <%} %>
             </tr>
         <%} %>
     </tbody>
