@@ -12,6 +12,7 @@ module.exports = {
 async function index(req, res) {
   try {
     const allStocks = await Stock.find({});
+
     res.render('stocks/index', {
       stock: allStocks,
     });
