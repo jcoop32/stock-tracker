@@ -18,7 +18,8 @@
             <tr>
                 <td><%= stock[i].name %></td>
                 <td><%= stock[i].ticker %></td>
-                <td id="api-price">$<%= price(stock[i].ticker) %></td>
+                <td id="api-price">$<%= stock[i].price %></td>
+
                 <% if(stock[i].feeling === 'Bullish'){%>
                     <td style="color: green;"><%= stock[i].feeling %></td>
                 <%} else{%>
@@ -30,7 +31,7 @@
                     </a>
                 </td>
                 <td>
-                    <form action="/stocks/<%=stock[i]._id%>?_method=DELETE" method='POST'>
+                    <form action="/stocks/<%=stock[i]._id%>?_method=DELETE" method='POST' >
                            <input type="image" src="/images/trash.svg"></input>
                     </form>
                 </td>

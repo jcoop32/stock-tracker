@@ -1,6 +1,6 @@
 // const axios = require('axios');
 
-let stock = 'AAPL';
+let stock = 'GOOG';
 
 // let config = {
 //   method: 'get',
