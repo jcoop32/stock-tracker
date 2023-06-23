@@ -1,4 +1,5 @@
 const Stock = require('../models/stock');
+const Price = require('../models/apiPrice');
 
 module.exports = {
   index,
@@ -12,9 +13,9 @@ module.exports = {
 async function index(req, res) {
   try {
     const allStocks = await Stock.find({});
-
     res.render('stocks/index', {
       stock: allStocks,
+      price: Price.realtimePrice,
     });
   } catch (err) {
     console.log(err);
