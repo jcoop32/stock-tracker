@@ -1,11 +1,9 @@
-const axios = require('axios');
-
 module.exports = {
   realtimePrice,
 };
 
 async function realtimePrice(stock) {
-  var requestOptions = {
+  const requestOptions = {
     method: 'GET',
     redirect: 'follow',
   };

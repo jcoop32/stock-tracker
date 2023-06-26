@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const stocksCtrl = require('../controllers/stocks');
+const apiPricesCtrl = require('../controllers/apiPrices');
 
 /* GET stock listing. */
 router.get('/', stocksCtrl.index);

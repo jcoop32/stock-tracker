@@ -1,5 +1,6 @@
 const Stock = require('../models/stock');
-// const Price = require('../models/apiPrice');
+const Price = require('../models/apiPrice');
+const { all } = require('axios');
 
 module.exports = {
   index,
@@ -10,14 +11,14 @@ module.exports = {
   delete: deleteStock,
 };
 
-// console.log(Price.realtimePrice('TSLA'));
-
 async function index(req, res) {
+  console.log(Price.realtimePrice().then());
   try {
     const allStocks = await Stock.find({});
+    //need to get all tickers from db and pass to view
     res.render('stocks/index', {
       stock: allStocks,
-      // price: Price.realtimePrice,
+      currentPrice: Price.realtimePrice,
     });
   } catch (err) {
     console.log(err);
