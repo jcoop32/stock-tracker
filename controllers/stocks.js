@@ -1,6 +1,7 @@
 const Stock = require('../models/stock');
 const Price = require('../models/apiPrice');
 const { all } = require('axios');
+const { get } = require('jquery');
 
 module.exports = {
   index,
@@ -12,13 +13,40 @@ module.exports = {
 };
 
 async function index(req, res) {
-  console.log(Price.realtimePrice().then());
+  const sendHttpRequest = (method, url) => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.responseType = 'json';
+
+      xhr.onload = () => {
+        resolve(xhr.response);
+      };
+
+      xhr.send();
+    });
+  };
+  var price;
+  const getData = (stock) => {
+    sendHttpRequest(
+      'GET',
+      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY}`,
+    ).then((responseData) => {
+      price = responseData.data[0].price;
+      // price = responseData.data[0].price;
+    });
+    return price;
+  };
+
+  getData('GOOG');
+  console.log(price);
   try {
     const allStocks = await Stock.find({});
     //need to get all tickers from db and pass to view
     res.render('stocks/index', {
       stock: allStocks,
-      currentPrice: Price.realtimePrice,
+      // currentPrice: await Price.getData,
+      price: await getData,
     });
   } catch (err) {
     console.log(err);

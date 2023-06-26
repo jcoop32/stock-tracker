@@ -3,7 +3,6 @@
 
 <div class="container text-center">
 <h1>Stocks</h1>
-
 <table>
     <thead>
         <tr>
@@ -19,7 +18,7 @@
                 <td><%= stock[i].name %></td>
                 <td><%= stock[i].ticker %></td>
                 <td id="api-price">$<%= stock[i].price %></td>
-                <!-- <td id="api-price">$<%= currentPrice(stock[i].ticker) %></td> -->
+                
 
                 <% if(stock[i].feeling === 'Bullish'){%>
                     <td style="color: green;"><%= stock[i].feeling %></td>
