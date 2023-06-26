@@ -13,40 +13,39 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const sendHttpRequest = (method, url) => {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open(method, url);
-      xhr.responseType = 'json';
+  // const sendHttpRequest = (method, url) => {
+  //   return new Promise((resolve, reject) => {
+  //     const xhr = new XMLHttpRequest();
+  //     xhr.open(method, url);
+  //     xhr.responseType = 'json';
 
-      xhr.onload = () => {
-        resolve(xhr.response);
-      };
+  //     xhr.onload = () => {
+  //       resolve(xhr.response);
+  //     };
 
-      xhr.send();
-    });
-  };
-  var price;
-  const getData = (stock) => {
-    sendHttpRequest(
-      'GET',
-      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY}`,
-    ).then((responseData) => {
-      price = responseData.data[0].price;
-      // price = responseData.data[0].price;
-    });
-    return price;
-  };
+  //     xhr.send();
+  //   });
+  // };
+  // const getData = (stock) => {
+  //   sendHttpRequest(
+  //     'GET',
+  //     `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY}`,
+  //   ).then((responseData) => {
+  //     const price = responseData.data[0].price;
+  //     // price = responseData.data[0].price;
+  //   });
+  //   return price;
+  // };
 
-  getData('GOOG');
-  console.log(price);
+  // getData('GOOG');
+  // console.log(price);
   try {
     const allStocks = await Stock.find({});
     //need to get all tickers from db and pass to view
     res.render('stocks/index', {
       stock: allStocks,
       // currentPrice: await Price.getData,
-      price: await getData,
+      // price:,
     });
   } catch (err) {
     console.log(err);
