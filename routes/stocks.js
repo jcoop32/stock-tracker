@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 const stocksCtrl = require('../controllers/stocks');
-const apiPricesCtrl = require('../controllers/apiPrices');
+// const apiPricesCtrl = require('../controllers/apiPrices');
 
 /* GET stock listing. */
 router.get('/', stocksCtrl.index);
+
 // router.get('/', apiPricesCtrl.price);
 
 router.get('/:id/edit', stocksCtrl.edit);

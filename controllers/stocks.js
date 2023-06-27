@@ -1,8 +1,5 @@
 const Stock = require('../models/stock');
 const Price = require('../models/apiPrice');
-const { all } = require('axios');
-const { get } = require('jquery');
-const { response } = require('express');
 
 module.exports = {
   index,
@@ -20,8 +17,24 @@ async function index(req, res) {
     for (let i = 0; i < allStocks.length; i++) {
       const response = await Price.getData(allStocks[i].ticker);
       allStocks[i].price = response.data[0].price;
+      //saves price to db
+      allStocks[i].save();
+      // const resp = await Stock.replaceOne(
+      //   { _id: allStocks[i]._id },
+      //   // { name: allStocks[i].name },
+      //   { ticker: allStocks[i].ticker },
+      //   { price: allStocks[i].price },
+      //   // { createdAt: allStocks[i].createdAt },
+      //   // { updatedAt: allStocks[i].updatedAtAt },
+      // );
       //change value in db to current price
-      // Stock.findByIdAndUpdate(req.params.id, { price: allStocks[i].price });
+      // Stock.updateOne(
+      //   { ticker: `${allStocks[i].ticker}` },
+      //   { $set: { price: `${allStocks[i].price}` } },
+      // );
+
+      // console.log(`Price after api call: ${allStocks[i].price}`);
+      // console.log(`MongoDB Price after api call: ${Stock.findOne()}`);
     }
     // const tickers = await Stock
 

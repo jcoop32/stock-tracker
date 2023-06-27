@@ -1,6 +1,3 @@
-const { response } = require('express');
-const { error, data } = require('jquery');
-
 module.exports = {
   getData,
 };
@@ -10,7 +7,6 @@ async function getData(stock) {
 
   const requestOptions = {
     method: 'GET',
-    redirect: 'follow',
   };
 
   try {
@@ -26,11 +22,5 @@ async function getData(stock) {
     (error) => console.log('error', error);
   }
 
-  // try {
-  //   await response.json();
-  //   await result.data[0].price;
-  // } catch (error) {
-  //   (error) => console.log('error', error);
-  // }
   //call every 5mins so 300,000 ms to stay under 100 api calls per day
 }
