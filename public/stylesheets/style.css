@@ -7,22 +7,21 @@ a {
   color: #00b7ff;
 }
 
-tr,
-td,
-thead,
-th {
-  border: 1px solid black;
+tr, td, thead, th {
+  border: 2px solid black;
   padding: 8px;
   width: 33%;
 }
 
-table {
-  border-radius: 5px;
-}
-
 tbody {
   width: 33%;
-  border-radius: 3px;
+}
+
+#stockName{
+  text-decoration: none;
+}
+#stockName:hover{
+  text-decoration: underline;
 }
 
 #plus {
@@ -33,4 +32,9 @@ tbody {
 
 #plus-row {
   border: none;
+}
+
+.hover-section:hover {
+  background-color: black;
+  cursor: pointer;
 }

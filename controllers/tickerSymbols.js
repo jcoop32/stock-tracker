@@ -1,16 +1,19 @@
-const Ticker = require('../models/tickerSymbol');
+// const Ticker = require('../models/tickerSymbol');
 
-module.exports = {
-  search,
-};
+// module.exports = {
+//   allTickers,
+// };
 
-(async function (req, res) {
-  try {
-    let tickers = await Ticker.find({});
-    console.log(tickers);
-  } catch (error) {
-    console.log(error);
-  }
-})();
+// async function allTickers(req, res) {
+//   try {
+//     // let tickers = await Ticker.find(req.params.id);
+//     // console.log(tickers);
+//     res.render('stocks/tickersList', {
+//       // ticker: tickers,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-async function search(req, res) {}
+// // async function search(req, res) {}

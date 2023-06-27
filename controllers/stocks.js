@@ -27,6 +27,7 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
+    //https://www.w3schools.com/js/js_date_methods.asp
     const date = new Date().toLocaleDateString('en-us', {
       weekday: 'long',
       year: 'numeric',
@@ -40,20 +41,18 @@ async function index(req, res) {
 
     //for loop to set price for each stock based on ticker symbol
     const allStocks = await Stock.find({});
-    //add if..else statement to check wheter or not the price has changed
+    // add if..else statement to check wheter or not the price has changed
     // for (let i = 0; i < allStocks.length; i++) {
     //   const response = await Price.getData(allStocks[i].ticker);
+    //   //sets current stock price to doc field price
     //   allStocks[i].price = response.data[0].price;
-    //   //saves price to db
-    //   allStocks[i].save();
+    //   //saves price to db or adds new field to doc
+    //   await allStocks[i].save();
     // }
-
-    //need to get all tickers from db and pass to view
     res.render('stocks/index', {
       stock: allStocks,
       date: date,
       time: time,
-      // price: price,
     });
   } catch (err) {
     console.log(err);

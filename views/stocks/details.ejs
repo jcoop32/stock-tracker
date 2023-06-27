@@ -1,9 +1,20 @@
 <%- include('../partials/header.ejs') %>
 
-<h1><%=stock.name%></h1>
+<div class="mt-3">
+    <h1><%=stock.name%></h1>
+    
+    <p class="fs-4">Ticker: <%=stock.ticker%></p>
+    <p class="fs-5">Price: <%=stock.price%></p>
+    <p>Your feeling <span style="text-decoration: underline;"><%=stock.feeling%></span> about this stock.</p>
+    <ul>
+        <li class="fs-5">IPO date: xx/xx/xxxx</li>
+        <li class="fs-5">Average Volume: 10,000,000</li>
+        <li class="fs-5">Market Cap: $1.32T</li>
+        <li class="fs-5">52 week high: $xx.xx</li>
+        <li class="fs-5">52 week low: $xx.xx</li>
+    
+    </ul>
 
-<p>Ticker: <%=stock.ticker%></p>
-<p>Price: <%=stock.price%></p>
-<p>Your feeling <%=stock.feeling%> about this stock.</p>
+</div>
 
 <%- include('../partials/footer.ejs')%>

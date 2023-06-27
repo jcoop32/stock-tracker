@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const stocksCtrl = require('../controllers/stocks');
+// const tickerCtrl = require('../controllers/tickerSymbols');
 
 /* GET stock listing. */
 router.post('/', stocksCtrl.create);
