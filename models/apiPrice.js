@@ -2,6 +2,31 @@ module.exports = {
   getData,
 };
 
+//changes key after 90 calls
+let count = 0;
+let key = process.env.STOCK_DATA_KEY7;
+switch (count) {
+  case 90:
+    key = process.env.STOCK_DATA_KEY6;
+    break;
+  case 190:
+    key = process.env.STOCK_DATA_KEY5;
+    break;
+  case 290:
+    key = process.env.STOCK_DATA_KEY4;
+    break;
+  case 390:
+    key = process.env.STOCK_DATA_KEY3;
+    break;
+  case 490:
+    key = process.env.STOCK_DATA_KEY2;
+    break;
+  case 590:
+    key = process.env.STOCK_DATA_KEY1;
+    break;
+  default:
+    key = process.env.STOCK_DATA_KEY1;
+}
 async function getData(stock) {
   console.log(' in getData');
 
@@ -11,13 +36,13 @@ async function getData(stock) {
 
   try {
     const response = await fetch(
-      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY3}`,
+      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${key}`,
       requestOptions,
     );
-    // console.log('fetch: ', response.data[0].price);
 
+    count++;
+    console.log(count);
     return response.json();
-    // return response.json(response.data[0].price);
   } catch (error) {
     (error) => console.log('error', error);
   }
