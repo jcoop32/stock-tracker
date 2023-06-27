@@ -1,13 +1,13 @@
 <%- include('../partials/header.ejs') %>
 
-<h3>Edit Stock</h3>
+<h3 class="mt-3">Edit Stock</h3>
 <form action="/stocks/<%=stock._id%>/edit?_method=PUT" method="POST">
   <label
     >Stock Name:
     <input type="text" name="name" value="<%=stock.name%>" />
   </label>
   <br />
-  <label
+  <label class="mt-3"
     >Ticker:
     <input type="text" name="ticker" value="<%=stock.ticker%>" />
   </label>
@@ -23,7 +23,8 @@
       <option value="Bearish">Bearish</option>
     </select>
   </label>
-  <button type="submit">Edit Stock</button>
+  <br />
+  <button class="btn btn-primary mt-3" type="submit">Edit Stock</button>
 </form>
 
 <%- include('../partials/footer.ejs') %>

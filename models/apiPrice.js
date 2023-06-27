@@ -11,7 +11,7 @@ async function getData(stock) {
 
   try {
     const response = await fetch(
-      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY2}`,
+      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY3}`,
       requestOptions,
     );
     // console.log('fetch: ', response.data[0].price);
