@@ -8,6 +8,8 @@ router.post('/', stocksCtrl.create);
 
 router.get('/new', stocksCtrl.new);
 
+router.get('/:id', stocksCtrl.details);
+
 router.get('/', stocksCtrl.index);
 
 router.get('/:id/edit', stocksCtrl.edit);

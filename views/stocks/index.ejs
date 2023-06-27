@@ -2,12 +2,11 @@
 
 
 <div class="container text-center">
-<h1>Your Stocks</h1>
+<h1 class="text-start">Your Stocks</h1>
 <h2><%=date%></h2>
-<!-- <button onclick="">Add Random Stock</button> -->
-<table>
+<table >
     <thead>
-        <tr>
+        <tr >
             <th>Name</th>
             <th>Ticker</th>
             <th>Price (as of <%=time%> CST)</th>
@@ -16,15 +15,14 @@
     </thead>
     <tbody>
         <% for(let i = 0; i < stock.length; i++) {%>
-            <tr>
-                <td><%= stock[i].name %></td>
+            <tr class="rounded-2"> 
+                <td><a href="/stocks/<%=stock[i]._id%>"><%= stock[i].name %></a></td></a>
                 <td><%= stock[i].ticker %></td>
                 <td id="api-price">$<%= stock[i].price %></td>
-            
                 <% if(stock[i].feeling === 'Bullish'){%>
-                    <td style="color: green;"><%= stock[i].feeling %></td>
+                    <td style="color: green;"><%= stock[i].feeling %>↑ </td>
                 <%} else{%>
-                    <td style="color: red;"><%= stock[i].feeling %></td>
+                    <td style="color: red;"><%= stock[i].feeling %>↓ </td>
                 <%} %>
                 <td>
                     <a href="/stocks/<%=stock[i]._id%>/edit">

@@ -1,29 +1,36 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
-tr, td, thead, th {
+tr,
+td,
+thead,
+th {
   border: 1px solid black;
   padding: 8px;
   width: 33%;
 }
-tbody{
-  width: 33%;
+
+table {
+  border-radius: 5px;
 }
 
+tbody {
+  width: 33%;
+  border-radius: 3px;
+}
 
-#plus{
+#plus {
   padding: 1px;
   border: none;
   text-align: start;
-
 }
 
-#plus-row{
+#plus-row {
   border: none;
 }

@@ -3,6 +3,7 @@ const Price = require('../models/apiPrice');
 
 module.exports = {
   index,
+  details,
   new: newStock,
   create,
   edit,
@@ -36,14 +37,16 @@ async function index(req, res) {
       hour: '2-digit',
       minute: '2-digit',
     });
+
+    //for loop to set price for each stock based on ticker symbol
     const allStocks = await Stock.find({});
     //add if..else statement to check wheter or not the price has changed
-    for (let i = 0; i < allStocks.length; i++) {
-      const response = await Price.getData(allStocks[i].ticker);
-      allStocks[i].price = response.data[0].price;
-      //saves price to db
-      allStocks[i].save();
-    }
+    // for (let i = 0; i < allStocks.length; i++) {
+    //   const response = await Price.getData(allStocks[i].ticker);
+    //   allStocks[i].price = response.data[0].price;
+    //   //saves price to db
+    //   allStocks[i].save();
+    // }
 
     //need to get all tickers from db and pass to view
     res.render('stocks/index', {
@@ -54,6 +57,17 @@ async function index(req, res) {
     });
   } catch (err) {
     console.log(err);
+  }
+}
+
+async function details(req, res) {
+  try {
+    const stock = await Stock.findById(req.params.id);
+    res.render('stocks/details', {
+      stock: stock,
+    });
+  } catch (error) {
+    console.log(error);
   }
 }
 
