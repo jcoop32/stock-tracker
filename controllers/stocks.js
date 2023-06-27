@@ -2,6 +2,7 @@ const Stock = require('../models/stock');
 const Price = require('../models/apiPrice');
 const { all } = require('axios');
 const { get } = require('jquery');
+const { response } = require('express');
 
 module.exports = {
   index,
@@ -13,39 +14,18 @@ module.exports = {
 };
 
 async function index(req, res) {
-  // const sendHttpRequest = (method, url) => {
-  //   return new Promise((resolve, reject) => {
-  //     const xhr = new XMLHttpRequest();
-  //     xhr.open(method, url);
-  //     xhr.responseType = 'json';
-
-  //     xhr.onload = () => {
-  //       resolve(xhr.response);
-  //     };
-
-  //     xhr.send();
-  //   });
-  // };
-  // const getData = (stock) => {
-  //   sendHttpRequest(
-  //     'GET',
-  //     `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY}`,
-  //   ).then((responseData) => {
-  //     const price = responseData.data[0].price;
-  //     // price = responseData.data[0].price;
-  //   });
-  //   return price;
-  // };
-
-  // getData('GOOG');
-  // console.log(price);
   try {
     const allStocks = await Stock.find({});
+    // for (let i = 0; i < allStocks.length; i++) {
+    //   const response = await Price.getData(allStocks[i].ticker);
+    //   allStocks[i].price = response.data[0].price;
+    // }
+    // const tickers = await Stock
+
     //need to get all tickers from db and pass to view
     res.render('stocks/index', {
       stock: allStocks,
-      // currentPrice: await Price.getData,
-      // price:,
+      // price: price,
     });
   } catch (err) {
     console.log(err);

@@ -3,6 +3,7 @@
 
 <div class="container text-center">
 <h1>Stocks</h1>
+<!-- <button onclick="">Add Random Stock</button> -->
 <table>
     <thead>
         <tr>
@@ -18,8 +19,7 @@
                 <td><%= stock[i].name %></td>
                 <td><%= stock[i].ticker %></td>
                 <td id="api-price">$<%= stock[i].price %></td>
-                
-
+            
                 <% if(stock[i].feeling === 'Bullish'){%>
                     <td style="color: green;"><%= stock[i].feeling %></td>
                 <%} else{%>

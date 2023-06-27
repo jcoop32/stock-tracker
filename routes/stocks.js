@@ -6,6 +6,7 @@ const apiPricesCtrl = require('../controllers/apiPrices');
 
 /* GET stock listing. */
 router.get('/', stocksCtrl.index);
+// router.get('/', apiPricesCtrl.price);
 
 router.get('/:id/edit', stocksCtrl.edit);
 
