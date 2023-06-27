@@ -16,10 +16,13 @@ module.exports = {
 async function index(req, res) {
   try {
     const allStocks = await Stock.find({});
-    // for (let i = 0; i < allStocks.length; i++) {
-    //   const response = await Price.getData(allStocks[i].ticker);
-    //   allStocks[i].price = response.data[0].price;
-    // }
+    //add if..else statement to check wheter or not the price has changed
+    for (let i = 0; i < allStocks.length; i++) {
+      const response = await Price.getData(allStocks[i].ticker);
+      allStocks[i].price = response.data[0].price;
+      //change value in db to current price
+      // Stock.findByIdAndUpdate(req.params.id, { price: allStocks[i].price });
+    }
     // const tickers = await Stock
 
     //need to get all tickers from db and pass to view
