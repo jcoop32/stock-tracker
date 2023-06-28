@@ -29,7 +29,7 @@ module.exports = {
 //   key = process.env.STOCK_DATA_KEY1;
 //}
 
-// console.log(key);
+//get data from api call
 async function getData(stock) {
   console.log(' in getData');
 
@@ -40,12 +40,10 @@ async function getData(stock) {
   try {
     //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     const response = await fetch(
-      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY1}`,
+      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY6}`,
       requestOptions,
     );
 
-    // count++;
-    // console.log(count);
     return response.json();
   } catch (error) {
     (error) => console.log('error', error);
