@@ -34,10 +34,7 @@ async function index(req, res) {
       month: 'short',
       day: 'numeric',
     });
-    const time = new Date().toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+    const time = new Date().toLocaleTimeString();
 
     //for loop to set price for each stock based on ticker symbol
     const allStocks = await Stock.find({});
