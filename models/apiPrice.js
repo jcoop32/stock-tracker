@@ -29,7 +29,7 @@ module.exports = {
 //   key = process.env.STOCK_DATA_KEY1;
 //}
 
-//get data from api call
+//get data from api call from www.stockdata.org
 async function getData(stock) {
   console.log(' in getData');
 
