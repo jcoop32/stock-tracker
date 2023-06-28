@@ -5,7 +5,7 @@ module.exports = {
 //changes key after 90 calls
 
 let count = 0;
-key = process.env.STOCK_DATA_KEY7;
+key = process.env.STOCK_DATA_KEY6;
 switch (count) {
   case 9:
     key = process.env.STOCK_DATA_KEY6;

@@ -47,8 +47,9 @@ async function index(req, res) {
       //sets current stock price to doc field price
       allStocks[i].price = response.data[0].price;
       //saves price to db or adds new field to doc
-      await allStocks[i].save();
+      // allStocks[i].save();
     }
+    Stock.bulkSave(allStocks);
     res.render('stocks/index', {
       stock: allStocks,
       date: date,
