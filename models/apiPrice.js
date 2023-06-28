@@ -40,7 +40,7 @@ async function getData(stock) {
   try {
     //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     const response = await fetch(
-      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${process.env.STOCK_DATA_KEY5}`,
+      `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=4kn5kJUqDCN6hqZ8qpvEmoC6EKNPPEC09DMYoERC`,
       requestOptions,
     );
 
