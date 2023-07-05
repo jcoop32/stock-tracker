@@ -40,13 +40,13 @@ async function index(req, res) {
     const allStocks = await Stock.find({});
     // add if..else statement to check wheter or not the price has changed
 
-    for (let i = 0; i < allStocks.length; i++) {
-      const response = await Price.getData(allStocks[i].ticker);
-      //sets current stock price to doc field price
-      allStocks[i].price = response.data[0].price;
-      //saves price to db or adds new field to doc
-      allStocks[i].save();
-    }
+    // for (let i = 0; i < allStocks.length; i++) {
+    //   const response = await Price.getData(allStocks[i].ticker);
+    //   //sets current stock price to doc field price
+    //   allStocks[i].price = response.data[0].price;
+    //   //saves price to db or adds new field to doc
+    //   allStocks[i].save();
+    // }
     // Stock.bulkSave(allStocks);
     res.render('stocks/index', {
       stock: allStocks,

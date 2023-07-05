@@ -1,21 +1,22 @@
 <%- include('../partials/header.ejs') %>
 
 
-<div class="container text-center">
+<div class="container text-center table-responsive">
 <h1 class="text-start">Your Stocks</h1>
 <h2><%=date%></h2>
-<table >
-    <thead>
-        <tr >
-            <th>Name</th>
-            <th>Ticker</th>
-            <th>Price (as of <%=time%>)</th>
-            <th>Feeling</th>
-        </tr>
+</div>
+<table class="table container table-dark table-bordered text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Ticker</th>
+        <th scope="col">Price (as of <%=time%>)</th>
+        <th scope="col">Feeling</th>
+      </tr>
     </thead>
     <tbody>
         <% for(let i = 0; i < stock.length; i++) {%>
-            <tr class="rounded-2"> 
+            <tr class=""> 
                 <td><a id="stockName" href="/stocks/<%=stock[i]._id%>"><%= stock[i].name %></a></td></a>
                 <td class="ticker text-center"><%= stock[i].ticker %></td>
                 <td id="api-price">$<%= stock[i].price %></td>
@@ -26,26 +27,25 @@
                 <%} %>
                 <td class="hover-section">
                     <a href="/stocks/<%=stock[i]._id%>/edit">
-                        <input type="image" src="/images/pencil.svg"></input>
+                        <input type="image" src="/images/pencil.svg" >
                     </a>
                 </td>
                 <td class="hover-section">
-                    <form action="/stocks/<%=stock[i]._id%>?_method=DELETE" method='POST' >
-                           <input type="image" src="/images/trash.svg"></input>
+                    <form action="/stocks/<%=stock[i]._id%>?_method=DELETE" method='POST' class="tools">
+                           <input type="image" src="/images/trash.svg" >
                     </form>
                 </td>
             </tr>
         <%} %>
-
-        <tr id="plus-row">
-            <td id="plus">
-                <a href="/stocks/new">
-                    <input type="image" src="/images/plus-square-fill.svg"></input>
-                </a>
-            </td>
-        </tr>
     </tbody>
-</table>
-</div>
+  </table>
+  <div class="container">
+      <a href="/stocks/new" >
+        <input type="image" src="/images/plus-square-fill.svg" >
+    </a>
+
+  </div>
+  
+  
 
 <%- include('../partials/footer.ejs') %>

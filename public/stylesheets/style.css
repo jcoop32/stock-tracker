@@ -7,20 +7,10 @@ a {
   color: #00b7ff;
 }
 
-tr, td, thead, th {
-  border: 2px solid black;
-  padding: 8px;
-  width: 33%;
-}
-
-tbody {
-  width: 33%;
-}
-
-#stockName{
+#stockName {
   text-decoration: none;
 }
-#stockName:hover{
+#stockName:hover {
   text-decoration: underline;
 }
 
