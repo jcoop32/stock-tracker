@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
-
-<h3 class="mt-3">Edit Stock</h3>
+<div class="container black-text">
+<h3 class="">Edit Stock</h3>
 <form action="/stocks/<%=stock._id%>/edit?_method=PUT" method="POST">
   <label
     >Stock Name:
@@ -18,13 +18,13 @@
   <br />
   <label
     >Feeling:
-    <select name="feeling">
+    <select name="feeling" id="select_feeling">
       <option value="Bullish">Bullish</option>
       <option value="Bearish">Bearish</option>
     </select>
   </label>
   <br />
-  <button class="btn btn-primary mt-3" type="submit">Edit Stock</button>
+  <button class="btn green" type="submit">Edit Stock</button>
 </form>
-
+</div>
 <%- include('../partials/footer.ejs') %>

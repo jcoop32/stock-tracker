@@ -1,6 +1,17 @@
 body {
-  padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #F2F1EE;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
 }
 
 a {
@@ -27,4 +38,8 @@ a {
 .hover-section:hover {
   background-color: black;
   cursor: pointer;
+}
+
+.arrow{
+  margin-top: 10px;
 }
