@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE_URL);
+const uri = process.env.DATABASE_URL;
+
+mongoose.connect(uri);
 
 //shortcut to mongoose.connection object
 const db = mongoose.connection;
@@ -9,12 +11,12 @@ db.on('connected', function () {
   console.log(`Connected to MongoDB ${db.name}, at ${db.host}:${db.port}`);
 });
 
-
-
 const MongoClient = require('mongodb').MongoClient;
 
-
-const client = new MongoClient(process.env.DATABASE_URL), { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Connect to the MongoDB instance
 client.connect((err) => {
