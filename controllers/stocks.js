@@ -43,7 +43,9 @@ async function index(req, res) {
     for (let i = 0; i < allStocks.length; i++) {
       const response = await Price.getData(allStocks[i].ticker);
       //sets current stock price to doc field price
+
       allStocks[i].price = response.data[0].price;
+      // console.log(allStocks[i].price);
       //saves price to db or adds new field to doc
       allStocks[i].save();
     }
